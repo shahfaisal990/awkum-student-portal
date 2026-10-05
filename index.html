@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>eservices.awkum.edu.pk</title>
+  <!-- Google Fonts: Noto Nastaliq Urdu & Roboto for identical typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Desktop Device Switcher Bar (Hidden on Mobile) -->
+  <div class="device-switcher" id="deviceSwitcher">
+    <div class="switcher-content">
+      <span class="switcher-label">📱 Preview:</span>
+      <button class="switcher-btn active" id="btnPhoneView">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+        Phone Frame
+      </button>
+      <button class="switcher-btn" id="btnFullView">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 12H3V4h18v10z"/></svg>
+        Full Width
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Screen Container -->
+  <div class="mobile-container" id="mobileContainer">
+
+    <!-- Top Dark Bar with Centered University Logo Box -->
+    <div class="header-dark-bar">
+      <div class="awkum-crest-box">
+        <img src="logo.jpg" alt="Abdul Wali Khan University Mardan" class="top-logo-img">
+      </div>
+    </div>
+
+    <!-- Blue Navigation Bar with Hamburger Menu -->
+    <div class="header-blue-bar">
+      <button class="hamburger-btn" id="sidebarToggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="white" stroke-width="2.6" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Slide-in Sidebar Drawer -->
+    <div class="sidebar-drawer" id="sidebarDrawer">
+      <div class="sidebar-header">
+        <div class="sidebar-user-info">
+          <div class="sidebar-avatar">MA</div>
+          <div>
+            <div class="sidebar-name">Muhammad Abdullah</div>
+            <div class="sidebar-sub">AWKUM-231003762</div>
+          </div>
+        </div>
+        <button class="sidebar-close-btn" id="sidebarClose">&times;</button>
+      </div>
+      <ul class="sidebar-nav">
+        <li class="active"><a href="#dashboard">🏠 Dashboard</a></li>
+        <li><a href="#profile">👤 Profile</a></li>
+        <li><a href="#courses">📖 Assigned Courses</a></li>
+        <li><a href="#attendance">📊 Attendance</a></li>
+        <li><a href="#results">📑 Exam & Results</a></li>
+        <li><a href="#fees">💳 Fee History & Challans</a></li>
+        <li><a href="#services">📝 E-Services</a></li>
+        <li><a href="#downloads">📥 Downloads</a></li>
+        <li class="divider"></li>
+        <li><a href="#password" onclick="openResetPasswordModal()">🔑 Reset Password</a></li>
+        <li><a href="#logout" class="text-danger">🚪 Logout</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Page Body Content -->
+    <div class="page-container">
+
+      <!-- Greeting & Timestamp Section -->
+      <div class="greeting-row">
+        <div class="arabic-text">اسلام علیکم ورحمتہ اللہ وبرکاتہ</div>
+        <div class="timestamp-text" id="liveTimestamp">
+          <div>(Today is Friday, October 2, 2026</div>
+          <div>06:58 AM PKT)</div>
+        </div>
+      </div>
+
+      <!-- Breadcrumbs Bar with Tachometer / Dashboard Icon -->
+      <div class="breadcrumb-container">
+        <span class="tacho-icon">
+          <!-- Tachometer Gauge SVG Icon -->
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="#555555">
+            <path d="M12 4C7.03 4 3 8.03 3 13c0 2.12.74 4.07 1.97 5.61L4.35 19.24a1 1 0 101.41 1.41l.63-.63C8.01 21.26 9.93 22 12 22s3.99-.74 5.61-1.98l.63.63a1 1 0 001.41-1.41l-.62-.63C20.26 17.07 21 15.12 21 13c0-4.97-4.03-9-9-9zm0 2c3.87 0 7 3.13 7 7 0 1.5-.47 2.89-1.28 4.03l-4.14-4.14a2.5 2.5 0 00-3.16 0L6.28 17.03C5.47 15.89 5 14.5 5 13c0-3.87 3.13-7 7-7zm-1 5.5a1.5 1.5 0 112.12 2.12L10.5 16.24 9.38 15.12l1.62-3.62z"/>
+          </svg>
+        </span>
+        <span class="bc-link">Home</span>
+        <span class="bc-sep">&gt;</span>
+        <span class="bc-active">Dashboard</span>
+      </div>
+
+      <!-- Urgent Important Notifications (Orange Alert Card) -->
+      <div class="orange-alert-box">
+        
+        <!-- Section: Student/Registration Card -->
+        <div class="alert-item">
+          <div class="alert-heading">
+            <span class="alert-icon-wrap">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#ffffff">
+                <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+              </svg>
+            </span>
+            <span class="alert-title-text">Student/Registration Card</span>
+          </div>
+          <div class="alert-body">
+            Due to security concerns, possession of a valid Student/Registration Card is mandatory for entry into the University premises. Students who have not yet collected their cards are directed to obtain them from the Directorate of Admissions by Friday, positively. After the deadline, entry without a valid Student/Registration Card will not be permitted.
+          </div>
+          <div class="alert-body mt-line">
+            All students are advised to ensure timely compliance.
+          </div>
+        </div>
+
+        <div class="alert-separator-line"></div>
+
+        <!-- Section 3: Need Help? -->
+        <div class="alert-item">
+          <div class="alert-heading">
+            <span class="alert-icon-wrap">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#ffffff">
+                <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+              </svg>
+            </span>
+            <span class="alert-title-text">Need Help?</span>
+          </div>
+          <div class="alert-body">
+            For any fee-related queries or assistance, please contact the Students' Cell at the Treasurer's Office. 
+            <span class="phone-link-wrap">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="#ffffff" style="vertical-align: -1px; margin-right: 2px;">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg><u>+92-937-920860</u> | <u>+92-937-920861</u>.
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Main Navigation Tabs Card (AdminLTE Box Style) -->
+      <div class="content-card tab-content-card">
+        
+        <!-- Tabs Top Row -->
+        <div class="tabs-nav-bar">
+          <button class="tab-button active" data-tab="tabActivity">
+            Activity
+          </button>
+          <button class="tab-button" data-tab="tabResult">Result</button>
+          <button class="tab-button" data-tab="tabFee">Fee History</button>
+        </div>
+
+        <!-- Quick Sub-Links Row -->
+        <div class="quick-links-container">
+          <div class="quick-links-row-1">
+            <a href="javascript:void(0)" class="quick-link-item" onclick="openResetPasswordModal()">Reset Password</a>
+            <a href="javascript:void(0)" class="quick-link-item link-dark" onclick="showInstructionToast()">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="#222" style="vertical-align: -1px; margin-right: 3px;">
+                <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+              </svg>
+              <strong>Instruction (Eservice Ease)</strong>
+            </a>
+          </div>
+          <div class="quick-links-row-2">
+            <a href="javascript:void(0)" class="quick-link-item link-dark" onclick="triggerDownloadsList()">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="#222" style="vertical-align: -1px; margin-right: 3px;">
+                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+              </svg>
+              <strong>Downloads</strong>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tab 1: Activity Pane -->
+        <div class="tab-panel active" id="tabActivity">
+          
+          <!-- Assigned Courses Title -->
+          <div class="card-blue-heading">Assigned Courses</div>
+
+          <!-- Courses Data Table -->
+          <div class="table-responsive-box">
+            <table class="courses-table">
+              <thead>
+                <tr>
+                  <th class="th-num">#</th>
+                  <th class="th-skip">Course (Skip)</th>
+                  <th class="th-course">Course</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="rowCourse1">
+                  <td class="td-num">1</td>
+                  <td class="td-skip">
+                    <button class="btn-blue-action" onclick="toggleCourse(1, 'Artificial Neural Networks (CS471)')">+</button>
+                  </td>
+                  <td class="td-course">
+                    <span class="course-name-text">Artificial Neural Networks (CS471)</span>
+                    <span class="badge-cyan-physical">
+                      <svg viewBox="0 0 24 24" width="11" height="11" fill="white" class="badge-icon">
+                        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+                      </svg>
+                      Physical
+                    </span>
+                  </td>
+                </tr>
+
+                <tr id="rowCourse2">
+                  <td class="td-num">2</td>
+                  <td class="td-skip">
+                    <button class="btn-blue-action" onclick="toggleCourse(2, 'Computer Vision (CS472)')">+</button>
+                  </td>
+                  <td class="td-course">
+                    <span class="course-name-text">Computer Vision (CS472)</span>
+                    <span class="badge-cyan-physical">
+                      <svg viewBox="0 0 24 24" width="11" height="11" fill="white" class="badge-icon">
+                        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+                      </svg>
+                      Physical
+                    </span>
+                  </td>
+                </tr>
+
+                <tr id="rowCourse3">
+                  <td class="td-num">3</td>
+                  <td class="td-skip">
+                    <button class="btn-blue-action" onclick="toggleCourse(3, 'Information Security (CS356)')">+</button>
+                  </td>
+                  <td class="td-course">
+                    <span class="course-name-text">Information Security (CS356)</span>
+                    <span class="badge-cyan-physical">
+                      <svg viewBox="0 0 24 24" width="11" height="11" fill="white" class="badge-icon">
+                        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+                      </svg>
+                      Physical
+                    </span>
+                  </td>
+                </tr>
+
+                <tr id="rowCourse4">
+                  <td class="td-num">4</td>
+                  <td class="td-skip">
+                    <button class="btn-blue-action" onclick="toggleCourse(4, 'Human Computer Interaction & Computer Graphics')">+</button>
+                  </td>
+                  <td class="td-course">
+                    <span class="course-name-text">Human Computer Interaction & Compute</span>
+                  </td>
+                </tr>
+
+                <tr id="rowCourse5">
+                  <td class="td-num">5</td>
+                  <td class="td-skip">
+                    <button class="btn-blue-action" onclick="toggleCourse(5, 'Fuzzy Systems (CS473)')">+</button>
+                  </td>
+                  <td class="td-course">
+                    <span class="course-name-text">Fuzzy Systems (CS473)</span>
+                    <span class="badge-cyan-physical">
+                      <svg viewBox="0 0 24 24" width="11" height="11" fill="white" class="badge-icon">
+                        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+                      </svg>
+                      Physical
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Red Footnote -->
+          <div class="footnote-red-text">
+            * Press X if this Subject doesn't belong to you.
+          </div>
+
+          <!-- Task (To Do List) Title -->
+          <div class="card-blue-heading mt-section">Task (To Do List)</div>
+
+          <!-- Light Gray To Do Box -->
+          <div class="todo-gray-box">
+            
+            <!-- Pay Online -->
+            <div class="todo-line-item">
+              <span class="red-globe-icon">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="#c0392b">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+              </span>
+              <div class="todo-item-body">
+                <div class="todo-text-wrap text-red-heading">
+                  Pay Online: Pay the Challan(s) amount through
+                </div>
+                <div class="badges-row">
+                  <span class="badge-orange-button" onclick="showPaymentInfo('EasyPaisa / JazzCash')">EasyPaisa, JazzCash (Watch Video)</span>
+                  <span class="badge-orange-button" onclick="showPaymentInfo('DigitalBank App')">DigitalBank App (Watch Video)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item: E Registration Card & Single Slip -->
+            <div class="todo-line-item mt-subitem">
+              <span class="orange-six-dots blinking-dots">
+                <svg width="8" height="13" viewBox="0 0 8 13" fill="#f39c12">
+                  <circle cx="2" cy="2" r="1.3"/>
+                  <circle cx="6" cy="2" r="1.3"/>
+                  <circle cx="2" cy="6.5" r="1.3"/>
+                  <circle cx="6" cy="6.5" r="1.3"/>
+                  <circle cx="2" cy="11" r="1.3"/>
+                  <circle cx="6" cy="11" r="1.3"/>
+                </svg>
+              </span>
+              <div class="todo-item-body">
+                <div class="todo-text-wrap">
+                  Secure your official <span class="badge-orange-button blinking-badge" onclick="downloadRegistrationCard()">E Registration Card</span> and <span class="badge-orange-button blinking-badge" onclick="downloadRegistrationCard()">Create a Single Slip</span> instantly—click the Download button to get your copy.
+                </div>
+                <div class="download-action-container">
+                  <button class="btn-cyan-download" id="btnDownloadCard" onclick="downloadRegistrationCard()">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="white" style="vertical-align: -1px; margin-right: 3px;">
+                      <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+                    </svg>
+                    Download
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Tab 2: Result Pane -->
+        <div class="tab-panel" id="tabResult" style="display: none;">
+          <div class="card-blue-heading">Academic Results</div>
+          <div class="tab-empty-notice">
+            <p><strong>Cumulative GPA:</strong> 3.74 / 4.00</p>
+            <p style="margin-top: 6px; color: #777;">Semester 7 results will be available after final term assessments.</p>
+          </div>
+        </div>
+
+        <!-- Tab 3: Fee History Pane -->
+        <div class="tab-panel" id="tabFee" style="display: none;">
+          <div class="card-blue-heading">Fee Records</div>
+          <div class="tab-empty-notice" style="text-align: left;">
+            <div>• <strong>Semester 7:</strong> PKR 66,000 (Challan #4177222213900604) - Pending</div>
+            <div>• <strong>Semester 6:</strong> PKR 65,000 (Verified)</div>
+            <div>• <strong>Semester 5:</strong> PKR 62,500 (Verified)</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Student Profile Card (Box Primary with 3px blue top border) -->
+      <div class="content-card profile-card-box">
+        
+        <!-- Circular Avatar Ring with Blue Question Mark Box -->
+        <div class="avatar-ring-container">
+          <div class="avatar-circle-ring">
+            <div class="avatar-question-box">?</div>
+          </div>
+        </div>
+
+        <!-- Student Header Titles -->
+        <div class="profile-names-block">
+          <div class="name-bold">Muhammad Abdullah</div>
+          <div class="father-sub">S/O Muhammad Ilyas</div>
+          <div class="regno-sub">AWKUM-231003762</div>
+        </div>
+
+        <!-- Attributes List Rows -->
+        <div class="profile-grid-list">
+          <div class="profile-data-row">
+            <div class="attr-label">Campus</div>
+            <div class="attr-val">Garden</div>
+          </div>
+          <div class="profile-data-row">
+            <div class="attr-label">Department</div>
+            <div class="attr-val">Computer Science</div>
+          </div>
+          <div class="profile-data-row">
+            <div class="attr-label">Discipline</div>
+            <div class="attr-val">BSCS-Artificial Intelligence</div>
+          </div>
+          <div class="profile-data-row">
+            <div class="attr-label">Semester</div>
+            <div class="attr-val">7th - (Section: B)</div>
+          </div>
+          <div class="profile-data-row">
+            <div class="attr-label">Status</div>
+            <div class="attr-val">InProgress</div>
+          </div>
+
+          <!-- Expandable Details -->
+          <div id="extraStudentDetails" style="display: none;">
+            <div class="profile-data-row">
+              <div class="attr-label">CNIC</div>
+              <div class="attr-val">16101-*******-3</div>
+            </div>
+            <div class="profile-data-row">
+              <div class="attr-label">Email</div>
+              <div class="attr-val">mabdullah.cs@awkum.edu.pk</div>
+            </div>
+            <div class="profile-data-row">
+              <div class="attr-label">Program</div>
+              <div class="attr-val">Morning (Regular)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- More Details Button -->
+        <button class="btn-more-details-blue" id="btnMoreDetails" onclick="toggleMoreDetails()">
+          More Details
+        </button>
+
+      </div>
+
+      <!-- Suggested To You Card (Box Primary with 3px blue top border) -->
+      <div class="content-card suggested-card-box">
+        <div class="card-top-title">Suggested To You</div>
+        <div class="bordered-list-wrapper">
+          <div class="bordered-list-row" onclick="openEserviceModal('Temporary Clearance')">
+            <span class="cyan-dots-grip blinking-dots">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Temporary Clearance</span>
+          </div>
+
+          <div class="bordered-list-row" onclick="openEserviceModal('Student Card(Application Form)')">
+            <span class="cyan-dots-grip blinking-dots">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Student Card<span class="link-sub">(Application Form)</span></span>
+          </div>
+
+          <div class="bordered-list-row" onclick="openEserviceModal('Transport Facility(Application Form)')">
+            <span class="cyan-dots-grip blinking-dots">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Transport Facility<span class="link-sub">(Application Form)</span></span>
+          </div>
+
+          <div class="bordered-list-row" onclick="openEserviceModal('English Proficiency Certificate')">
+            <span class="cyan-dots-grip blinking-dots">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">English Proficiency Certificate</span>
+          </div>
+
+          <div class="bordered-list-row" onclick="openEserviceModal('MRL Test (Application & Fee Challan)')">
+            <span class="cyan-dots-grip blinking-dots">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">MRL Test <span class="link-sub">(Application & Fee Challan)</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tasks (Approved/Completed) Card (Box Primary with 3px blue top border) -->
+      <div class="content-card tasks-card-box">
+        <div class="card-top-title">Tasks (Approved/Completed)</div>
+        <div class="bordered-list-wrapper">
+          <div class="bordered-list-row">
+            <span class="cyan-dots-grip">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Assignment</span>
+          </div>
+
+          <div class="bordered-list-row">
+            <span class="cyan-dots-grip">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Assignment</span>
+          </div>
+
+          <div class="bordered-list-row">
+            <span class="cyan-dots-grip">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Assignment</span>
+          </div>
+
+          <div class="bordered-list-row">
+            <span class="cyan-dots-grip">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Assignment</span>
+          </div>
+
+          <div class="bordered-list-row">
+            <span class="cyan-dots-grip">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Assignment</span>
+          </div>
+
+          <div class="bordered-list-row">
+            <span class="cyan-dots-grip">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Assignment</span>
+          </div>
+
+          <div class="bordered-list-row">
+            <span class="cyan-dots-grip">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Assignment</span>
+          </div>
+
+          <div class="bordered-list-row">
+            <span class="cyan-dots-grip">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Assignment</span>
+          </div>
+
+          <div class="bordered-list-row">
+            <span class="cyan-dots-grip">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Assignment</span>
+          </div>
+
+          <div class="bordered-list-row">
+            <span class="cyan-dots-grip">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="#00c0ef">
+                <circle cx="2.5" cy="2.5" r="1.5"/>
+                <circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="7" r="1.5"/>
+                <circle cx="7.5" cy="7" r="1.5"/>
+                <circle cx="2.5" cy="11.5" r="1.5"/>
+                <circle cx="7.5" cy="11.5" r="1.5"/>
+              </svg>
+            </span>
+            <span class="bordered-link-text">Assignment</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Blue Footer Bar with exact text from Screenshot 1 -->
+    <div class="portal-footer-bar">
+      <strong>Copyright © 2009-2026 AWKUM</strong> <span class="footer-powered-text">Powered by Faisal/Jehangir</span>
+    </div>
+
+  </div>
+
+  <!-- Reusable Modal Dialog -->
+  <div class="portal-modal-wrapper" id="portalModal">
+    <div class="modal-card">
+      <div class="modal-card-header">
+        <span class="modal-title-text" id="modalTitle">Notice</span>
+        <button class="modal-btn-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-card-body" id="modalBody">
+        <!-- Content inserted dynamically -->
+      </div>
+      <div class="modal-card-footer">
+        <button class="modal-close-action" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Message -->
+  <div class="toast-box" id="portalToast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
